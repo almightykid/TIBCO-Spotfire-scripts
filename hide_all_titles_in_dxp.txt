@@ -1,0 +1,13 @@
+# Python
+# This script hides all the titles of visualizations in the .dxp
+# Created by Almighty kid
+
+show_visualization_title = False
+count = 1
+
+for p in Document.Pages:	               								 # This will loop over all pages in .dxp
+	print (str(count) + ") " + p.Title)
+	count +=1
+	for v in p.Visuals:                    								 # This will loop over all visualizations on the page
+		v.ShowTitle = show_visualization_title		           # This disables the tittle
+		print ('\t Title:' + v.Title + "\t Id: " + str(v.Id) + "\t Enabled: " + str(v.ShowTitle) )

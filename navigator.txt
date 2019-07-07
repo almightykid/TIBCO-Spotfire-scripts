@@ -1,0 +1,87 @@
+# Python:
+
+# This script allows you to navigate through Spotfire without regular controls.
+# The document property currentpage is an integer and represents the page you are. This number starts at 0.
+
+currentapage = Document.Properties["currentpage"]
+Document.ActivePageReference = Document.Pages[currentapage]
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# HTML
+# We create a regular table with Id´s in every td.
+
+<div id="currentpage" style="display:none">
+  <SpotfireControl input field />
+</div>
+<table width="35%" align="right">
+    <tr>
+        <td id="1" align="center" width="20%" height="50%" style="text-align:center; color:white; vertical-align: middle; border-right: 2px solid white; border-left: 2px solid white">General</td>
+        <td id="2" align="center" width="20%" height="50%" style="text-align:center; color:white; vertical-align: middle; border-right: 2px solid white">Raw</td>
+        <td id="3" align="center" width="20%" height="50%" style="text-align:center; color:white; vertical-align: middle; border-right: 2px solid white">Table</td>
+	<td id="4" align="center" width="20%" height="50%" style="text-align:center; color:white; vertical-align: middle; border-right: 2px solid white">Part II</td>
+	<td id="5" align="center" width="20%" height="50%" style="text-align:center; color:white; vertical-align: middle;">Part III</td>
+    </tr>
+</table>
+
+
+- - - - - -
+
+# Javascript
+# Added onClick control over every <td> and depending on where you click the input field value changes with the id number. This will change the document property and launch the python script
+
+
+
+
+var clicked = 0;
+$('#1').on( "click", function() {
+	clicked = 0;
+	console.log( $( this ).text(), clicked );
+	$('#currentpage').show();
+	$('#currentpage input').focus();
+	$('#currentpage input').val(clicked)
+	$('#currentpage input').blur();
+	$('#currentpage').hide();
+
+});
+$('#2').on( "click", function() {
+	clicked = 1;
+	console.log( $( this ).text(), clicked );
+	$('#currentpage').show();
+	$('#currentpage input').focus();
+	$('#currentpage input').val(clicked)
+	$('#currentpage input').blur();
+	$('#currentpage').hide();
+
+});
+$('#3').on( "click", function() {
+	clicked = 2;
+	console.log( $( this ).text(), clicked );
+	$('#currentpage').show();
+	$('#currentpage input').focus();
+	$('#currentpage input').val(clicked)
+	$('#currentpage input').blur();
+	$('#currentpage').hide();
+
+});
+$('#4').on( "click", function() {
+	clicked = 3;
+	console.log( $( this ).text(), clicked );
+	$('#currentpage').show();
+	$('#currentpage input').focus();
+	$('#currentpage input').val(clicked)
+	$('#currentpage input').blur();
+	$('#currentpage').hide();
+
+});
+$('#5').on( "click", function() {
+	clicked = 4;
+	console.log( $( this ).text(), clicked );
+	$('#currentpage').show();
+	$('#currentpage input').focus();
+	$('#currentpage input').val(clicked)
+	$('#currentpage input').blur();
+	$('#currentpage').hide();
+
+});

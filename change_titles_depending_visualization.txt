@@ -1,0 +1,29 @@
+# Python
+# This script changes the titles of visualizations depending on type all over the .dxp
+# Created by Almighty kid
+
+
+count = 1
+for p in Document.Pages:	               # This will loop over all pages in .dxp
+	print (str(count) + ")  " + p.Title + ":")
+	count +=1
+	for v in p.Visuals:                    # This will loop over all visualizations on the page
+		if "TextArea" in str(v.TypeId):
+			v.Title = "The visualization is a TextArea."
+		elif "BarChart" in str(v.TypeId):
+			v.Title = "The visualization is a BarChart."
+		elif "WaterfallChart" in str(v.TypeId):
+			v.Title = "The visualization is a WaterfallChart."
+		elif "CombinationChart" in str(v.TypeId):
+			v.Title = "The visualization is a CombinationChart."
+		elif "LineChart" in str(v.TypeId):
+			v.Title = "The visualization is a LineChart."
+		elif "PieChart" in str(v.TypeId):
+			v.Title = "The visualization is a PieChart."
+		elif "GraphicalTable" in str(v.TypeId):
+			v.Title = "The visualization is a GraphicalTable."
+		elif "Table" in str(v.TypeId):
+			v.Title = "The visualization is a Table."
+		else:
+			v.Title = "The visualization is unavaible."
+		print ('\t Title:' + v.Title + "\t\t Id: " + str(v.Id) + "\t\t TypeId: " + str(v.TypeId))
